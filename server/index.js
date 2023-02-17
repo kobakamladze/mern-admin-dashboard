@@ -35,6 +35,6 @@ mongoose
   .connect(process.env.MONGO_URL, {})
   .then(() =>
     // Serevr setup
-    app.listen(PORT, () => console.log(`listening on PORT:${PORT}...`))
+    app.listen(PORT, () => console.log(`listening on PORT ${PORT}...`))
   )
   .catch((e) => console.log(e));
