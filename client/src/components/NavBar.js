@@ -7,9 +7,9 @@ import {
   SettingsOutlined,
   ArrowDropDownOutlined,
 } from '@mui/icons-material';
-import FlexBetween from '../FlexBetween';
+import FlexBetween from './FlexBetween';
 import { useDispatch } from 'react-redux';
-import { setMode } from '../../state';
+import { setMode } from '../state';
 import {
   AppBar,
   IconButton,
@@ -19,15 +19,15 @@ import {
 } from '@mui/material';
 // need to import profile image
 
-const NavBar = () => {
+const NavBar = ({ isSidebarOpened, setIsSidebarOpened }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
   return (
-    <AppBar>
+    <AppBar sx={{ position: 'static' }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <FlexBetween>
-          <IconButton onClick={() => console.log('Menu button clicked')}>
+          <IconButton onClick={() => setIsSidebarOpened(!isSidebarOpened)}>
             <MenuIcon />
           </IconButton>
 
