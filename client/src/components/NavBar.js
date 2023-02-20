@@ -9,17 +9,45 @@ import {
 } from '@mui/icons-material';
 import FlexBetween from './FlexBetween';
 import { useDispatch } from 'react-redux';
-import { setMode } from '../state';
+import { setMode } from '../state/globalSlice';
 import {
   AppBar,
+  Box,
+  Divider,
   IconButton,
   InputBase,
   Toolbar,
+  Typography,
   useTheme,
 } from '@mui/material';
-// need to import profile image
+import profilePic from '../assets/profile_pic.webp';
 
-const NavBar = ({ isSidebarOpened, setIsSidebarOpened }) => {
+// Small component to display user info in nav bar
+const UserInfoComponent = ({ user, theme }) => {
+  return (
+    <Box width="100%">
+      <FlexBetween textTransform="none" gap="1rem">
+        <Box
+          component="img"
+          src={profilePic}
+          alt="ptofile"
+          height="32px"
+          width="32px"
+          borderRadius="50%"
+          sc={{ objectFit: 'cover' }}
+        />
+
+        <Box textAlign="left">
+          <Typography fontWeight="bold" color={theme.palette.secondary[100]}>
+            {user.name}
+          </Typography>
+        </Box>
+      </FlexBetween>
+    </Box>
+  );
+};
+
+const NavBar = ({ user, isSidebarOpened, setIsSidebarOpened }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
@@ -52,9 +80,12 @@ const NavBar = ({ isSidebarOpened, setIsSidebarOpened }) => {
               <LightModeOutlined sx={{ fontSize: '25px' }} />
             )}
           </IconButton>
+
           <IconButton>
             <SettingsOutlined sx={{ fontSize: '25px' }} />
           </IconButton>
+
+          <UserInfoComponent user={user} theme={theme} />
         </FlexBetween>
       </Toolbar>
     </AppBar>

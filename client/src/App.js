@@ -4,8 +4,9 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
 import { themeSettings } from './theme';
-import Layout from './scenes/layout/Layout';
-import Dashboard from './scenes/dashboard/Dashboard';
+import BasicLayout from './layouts/BasicLayout';
+import Dashboard from './layouts/dashboard/Dashboard';
+import CatalogLayout from './layouts/CatalogLayout';
 
 function App() {
   const mode = useSelector(state => state.global.mode);
@@ -17,13 +18,18 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
-            <Route element={<Layout />}>
+            <Route element={<BasicLayout />}>
               <Route
                 path="/"
                 element={<Navigate to="/dashboard" />}
                 replace
               ></Route>
               <Route path="/dashboard" element={<Dashboard />} replace></Route>
+              <Route
+                path="/products"
+                element={<CatalogLayout />}
+                replace
+              ></Route>
             </Route>
           </Routes>
         </ThemeProvider>

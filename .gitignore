@@ -1,5 +1,6 @@
 /server/.env
 /server/node_modules
+/server/src/data.js
 
 /client/.env
 /client/node_modules

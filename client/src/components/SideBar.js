@@ -31,6 +31,7 @@ import {
 } from '@mui/icons-material';
 
 import FlexBetween from './FlexBetween';
+import profilePic from '../assets/profile_pic.webp';
 // need to import profile image
 
 const navItems = [
@@ -50,20 +51,114 @@ const navItems = [
   { label: 'Performance', icon: <TrendingUpOutlined /> },
 ];
 
+// Styled list of navigation items for side bar
+const NavigationList = ({ navItems, activeEndpoint, setActiveEndpoint }) => {
+  const navigate = useNavigate();
+  const theme = useTheme();
+
+  return (
+    <List>
+      {navItems.map(({ label, icon }) => {
+        const lowerCaseLabel = label.toLowerCase();
+
+        if (!icon)
+          return (
+            <Typography
+              key={crypto.randomUUID()}
+              sx={{ m: '2rem 0 0.8rem 1rem' }}
+            >
+              {label}
+            </Typography>
+          );
+
+        return (
+          <ListItem key={crypto.randomUUID()} disablePadding>
+            <ListItemButton
+              onClick={() => {
+                navigate(`/${lowerCaseLabel}`);
+                setActiveEndpoint(lowerCaseLabel);
+              }}
+              sx={{
+                backgroundColor:
+                  activeEndpoint === lowerCaseLabel
+                    ? theme.palette.secondary[300]
+                    : 'transparent',
+                color:
+                  activeEndpoint === lowerCaseLabel
+                    ? theme.palette.primary[600]
+                    : theme.palette.secondary[200],
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  ml: '2 rem',
+                  color:
+                    activeEndpoint === lowerCaseLabel
+                      ? theme.palette.primary[600]
+                      : theme.palette.secondary[200],
+                }}
+              >
+                {icon}
+              </ListItemIcon>
+              <ListItemText primary={label}>
+                {activeEndpoint === lowerCaseLabel ? (
+                  <ChevronRightOutlined sx={{ ml: 'auto' }} />
+                ) : null}
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
+        );
+      })}
+    </List>
+  );
+};
+
+// Small component to display user info in side bar
+const UserInfoComponent = ({ user, theme }) => {
+  return (
+    <Box position="absolute" bottom="2rem" width="100%">
+      <Divider />
+      <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
+        <Box
+          component="img"
+          src={profilePic}
+          alt="ptofile"
+          height="40px"
+          width="40px"
+          borderRadius="50%"
+          sc={{ objectFit: 'cover' }}
+        />
+
+        <Box textAlign="left">
+          <Typography fontWeight="bold" color={theme.palette.secondary[100]}>
+            {user.name}
+          </Typography>
+        </Box>
+
+        <SettingsOutlined
+          sx={{
+            fontSize: '25px',
+            color: theme.palette.secondary[300],
+            cursor: 'pointer',
+          }}
+        />
+      </FlexBetween>
+    </Box>
+  );
+};
+
 const SideBar = ({
+  user,
   isMobile,
   drawerWidth,
   isSidebarOpened,
   setIsSidebarOpened,
 }) => {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
-  const theme = useTheme();
   const [activeEndpoint, setActiveEndpoint] = useState('');
+  const theme = useTheme();
 
   useEffect(() => setActiveEndpoint(pathname.substring(1)), [pathname]);
-
-  console.log(activeEndpoint);
 
   return (
     <Box component="nav">
@@ -83,71 +178,27 @@ const SideBar = ({
         >
           <Box width="100%">
             <Box m="1.rem 2rem 2rem 3rem">
-              <FlexBetween>
-                <Box display="felx">
-                  <Typography variant="h4" fontWeight="bold">
-                    TITLE-TEXT
-                  </Typography>
-                  {isMobile ? (
-                    <IconButton
-                      onClick={() => setIsSidebarOpened(false)}
-                    ></IconButton>
-                  ) : null}
-                </Box>
-              </FlexBetween>
-              <List>
-                {navItems.map(({ label, icon }) => {
-                  const lowerCaseLabel = label.toLowerCase();
+              <Box textAlign="center" gap="0.5rem">
+                <Typography variant="h4" fontWeight="bold" p="1rem">
+                  TITLE-TEXT
+                </Typography>
+                {isMobile ? (
+                  <IconButton
+                    onClick={() => setIsSidebarOpened(false)}
+                  ></IconButton>
+                ) : null}
+              </Box>
 
-                  if (!icon)
-                    return (
-                      <Typography
-                        key={crypto.randomUUID()}
-                        sx={{ m: '2.25rem 0 1rem 3rem' }}
-                      ></Typography>
-                    );
-
-                  return (
-                    <ListItem key={crypto.randomUUID()} disablePadding>
-                      <ListItemButton
-                        onClick={() => {
-                          navigate(`/${lowerCaseLabel}`);
-                          setActiveEndpoint(lowerCaseLabel);
-                        }}
-                        sx={{
-                          backgroundColor:
-                            activeEndpoint === lowerCaseLabel
-                              ? theme.palette.secondary[300]
-                              : 'transparent',
-                          color:
-                            activeEndpoint === lowerCaseLabel
-                              ? theme.palette.primary[600]
-                              : theme.palette.secondary[200],
-                        }}
-                      >
-                        <ListItemIcon
-                          sx={{
-                            ml: '2 rem',
-                            color:
-                              activeEndpoint === lowerCaseLabel
-                                ? theme.palette.primary[600]
-                                : theme.palette.secondary[200],
-                          }}
-                        >
-                          {icon}
-                        </ListItemIcon>
-                        <ListItemText primary={label}>
-                          {activeEndpoint === lowerCaseLabel ? (
-                            <ChevronRightOutlined sx={{ ml: 'auto' }} />
-                          ) : null}
-                        </ListItemText>
-                      </ListItemButton>
-                    </ListItem>
-                  );
-                })}
-              </List>
+              <NavigationList
+                theme={theme}
+                navItems={navItems}
+                activeEndpoint={activeEndpoint}
+                setActiveEndpoint={setActiveEndpoint}
+              />
             </Box>
           </Box>
+
+          <UserInfoComponent user={user} theme={theme} />
         </Drawer>
       ) : null}
     </Box>
