@@ -5,8 +5,9 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
 import { themeSettings } from './theme';
 import BasicLayout from './layouts/BasicLayout';
-import Dashboard from './layouts/dashboard/Dashboard';
-import CatalogLayout from './layouts/CatalogLayout';
+import Dashboard from './layouts/Dashboard';
+import Products from './layouts/Products';
+import Customers from './layouts/Customers';
 
 function App() {
   const mode = useSelector(state => state.global.mode);
@@ -25,11 +26,8 @@ function App() {
                 replace
               ></Route>
               <Route path="/dashboard" element={<Dashboard />} replace></Route>
-              <Route
-                path="/products"
-                element={<CatalogLayout />}
-                replace
-              ></Route>
+              <Route path="/products" element={<Products />} replace></Route>
+              <Route path="/customers" element={<Customers />} replace></Route>
             </Route>
           </Routes>
         </ThemeProvider>

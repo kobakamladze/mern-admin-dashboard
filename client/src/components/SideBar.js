@@ -38,7 +38,7 @@ const navItems = [
   { label: 'Dashboard', icon: <HomeOutlined /> },
   { label: 'Client facing', icon: null },
   { label: 'Products', icon: <ShoppingCartOutlined /> },
-  { label: 'Customres', icon: <Groups2Outlined /> },
+  { label: 'Customers', icon: <Groups2Outlined /> },
   { label: 'Transactions', icon: <ReceiptLongOutlined /> },
   { label: 'Geography', icon: <PublicOutlined /> },
   { label: 'Sales', icon: null },
@@ -147,13 +147,7 @@ const UserInfoComponent = ({ user, theme }) => {
   );
 };
 
-const SideBar = ({
-  user,
-  isMobile,
-  drawerWidth,
-  isSidebarOpened,
-  setIsSidebarOpened,
-}) => {
+const SideBar = ({ user, isMobile, isSidebarOpened, setIsSidebarOpened }) => {
   const { pathname } = useLocation();
   const [activeEndpoint, setActiveEndpoint] = useState('');
   const theme = useTheme();

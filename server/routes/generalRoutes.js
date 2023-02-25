@@ -1,8 +1,6 @@
 import { Router } from 'express';
 import generalController from '../controllers/generalController.js';
 
-console.log(generalController);
-
 const generalRoutes = Router();
 
 /*
@@ -17,6 +15,20 @@ generalRoutes.get('/user/:id', generalController.getUser);
 
     Fetches products and product stats
 */
-generalRoutes.get('/product', generalController.getProduct);
+generalRoutes.get('/products', generalController.getProducts);
+
+/*
+    GET general/customers
+
+    Fetches customers
+*/
+generalRoutes.get('/customers', generalController.getCustomers);
+
+/*
+    GET general/customers
+
+    Fetches transactions
+*/
+generalRoutes.get('/transactions', generalController.getTransactions);
 
 export default generalRoutes;

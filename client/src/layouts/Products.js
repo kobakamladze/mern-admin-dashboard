@@ -1,7 +1,7 @@
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import LayoutTitle from '../components/LayoutTitle';
 import { useGetProductsQuery } from '../state/api/apiSlice';
-import ProductsList from './ProductsList';
+import ProductsList from '../components/ProductsList';
 
 const CatalogLayout = () => {
   const { data, isLoading, isFetching } = useGetProductsQuery();
@@ -18,7 +18,7 @@ const CatalogLayout = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <LayoutTitle title="DASHBOARD" subtitle="See list of your products" />
+      <LayoutTitle title="PRODUCTS" subtitle="See list of your products" />
 
       <Box
         mt="20px"
@@ -30,7 +30,6 @@ const CatalogLayout = () => {
         sx={{
           '& > div': { gridColumn: !isMobile ? 'span 4' : undefined },
         }}
-        // sx={{ '& > div': { gridColumn: isMobile ? 'span 4' : null } }}
       >
         <ProductsList data={data} />
       </Box>

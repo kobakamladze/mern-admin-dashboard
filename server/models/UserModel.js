@@ -18,12 +18,17 @@ const UserSchema = new mongoose.Schema({
     required: true,
     min: 6,
   },
-  //   city: String,
-  //   state: String,
-  //   country: String,
-  //   occupation: String,
-  //   phoneNumber: { type: String, required: true },
-  //   transactions: Array,
+  city: String,
+  state: String,
+  country: String,
+  occupation: String,
+  phoneNumber: { type: String, required: true },
+  transactions: [
+    {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'Transaction',
+    },
+  ],
   role: {
     type: String,
     enum: ['user', 'admin', 'superadmin'],

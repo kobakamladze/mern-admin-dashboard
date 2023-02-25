@@ -8,9 +8,24 @@ export const apiSlice = createApi({
       query: id => `general/user/${id}`,
     }),
     getProducts: builder.query({
-      query: () => `general/product`,
+      query: () => `general/products`,
+    }),
+    getCustomers: builder.query({
+      query: () => `general/customers`,
+    }),
+    getTransactions: builder.query({
+      query: ({ limit = 20, page = 1 }) => ({
+        url: `general/transactions`,
+        method: 'GET',
+        params: { limit, page },
+      }),
     }),
   }),
 });
 
-export const { useGetUserQuery, useGetProductsQuery } = apiSlice;
+export const {
+  useGetUserQuery,
+  useGetProductsQuery,
+  useGetCustomersQuery,
+  useGetTransactionsQuery,
+} = apiSlice;
