@@ -20,6 +20,9 @@ export const apiSlice = createApi({
         params: { limit, page },
       }),
     }),
+    getGeography: builder.query({
+      query: () => `client/geography`,
+    }),
   }),
 });
 
@@ -28,4 +31,5 @@ export const {
   useGetProductsQuery,
   useGetCustomersQuery,
   useGetTransactionsQuery,
+  useGetGeographyQuery,
 } = apiSlice;
