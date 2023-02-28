@@ -15,12 +15,14 @@ import {
   dataProductStat,
   dataTransaction,
   dataAffiliateStat,
+  dataOverallStat,
 } from './data.js';
 // import Product from './models/ProductModel.js';
-// import ProductStat from './models/ProductStatModel.js';
+import ProductStat from './models/ProductStatModel.js';
 // import User from './models/UserModel.js';
 // import Transaction from './models/TransactionModel.js';
 // import AffiliateStat from './models/AffiliateStatModel.js';
+import OverallStat from './models/OverAllStatModel.js';
 
 // Configurating basic middlewares
 dotenv.config();
@@ -50,5 +52,6 @@ mongoose
     // Product.insertMany(dataProduct);
     // Transaction.insertMany(dataTransaction);
     // AffiliateStat.insertMany(dataAffiliateStat);
+    // OverallStat.insertMany(dataOverallStat);
   })
   .catch(e => console.log(e));

@@ -19,7 +19,7 @@ const Geography = () => {
         subtitle="See number of users around the world."
       />
 
-      <Box mt="40px" height="80vh">
+      <Box mt="40px" height="80vh" width="100%">
         <ResponsiveChoropleth
           data={data}
           features={geoData.features}

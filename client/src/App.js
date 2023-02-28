@@ -10,6 +10,7 @@ import Products from './layouts/Products';
 import Customers from './layouts/Customers';
 import Transactions from './layouts/Transactions';
 import Geography from './layouts/Geography';
+import Overview from './layouts/Overview';
 
 function App() {
   const mode = useSelector(state => state.global.mode);
@@ -36,6 +37,7 @@ function App() {
                 replace
               ></Route>
               <Route path="/geography" element={<Geography />} replace></Route>
+              <Route path="/overview" element={<Overview />} replace></Route>
             </Route>
           </Routes>
         </ThemeProvider>
