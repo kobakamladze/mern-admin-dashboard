@@ -43,7 +43,6 @@ const navItems = [
   { label: 'Geography', icon: <PublicOutlined /> },
   { label: 'Sales', icon: null },
   { label: 'Overview', icon: <PointOfSaleOutlined /> },
-  { label: 'Daily', icon: <TodayOutlined /> },
   { label: 'Monthly', icon: <CalendarMonthOutlined /> },
   { label: 'Breakdown', icon: <PieChartOutlined /> },
   { label: 'Managment', icon: null },

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import { Box, useTheme } from '@mui/material';
-import { useGetSalesQuery } from '../state/api/apiSlice';
+import { useGetSalesQuery } from '../../state/api/apiSlice';
 
 const OverviewChart = ({ view }) => {
   const theme = useTheme();
