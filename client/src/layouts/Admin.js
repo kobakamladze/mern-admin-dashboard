@@ -1,59 +1,59 @@
 import { Box, useTheme } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
+import { useGetAdminsQuery } from '../state/api/apiSlice';
 import LayoutTitle from '../components/LayoutTitle';
-import { useGetCustomersQuery } from '../state/api/apiSlice';
 
-const Customers = () => {
-  const { data, isLoading } = useGetCustomersQuery();
+const Admin = () => {
+  const { data, isLoading } = useGetAdminsQuery();
 
   const columns = [
     {
       field: '_id',
-      headerNName: 'ID',
+      headerName: 'ID',
       flex: 1,
     },
     {
       field: 'name',
-      headerNName: 'Name',
+      headerName: 'Name',
       flex: 0.5,
     },
     {
       field: 'email',
-      headerNName: 'Email',
+      headerName: 'Email',
       flex: 1,
     },
     {
       field: 'phoneNumber',
-      headerNName: 'Phone Number',
+      headerName: 'Phone Number',
       flex: 0.5,
     },
     {
       field: 'country',
-      headerNName: 'Country',
-      flex: 0.5,
+      headerName: 'Country',
+      flex: 0.4,
     },
     {
       field: 'occupation',
-      headerNName: 'Occupation',
+      headerName: 'Occupation',
       flex: 1,
     },
     {
       field: 'role',
-      headerNName: 'Role',
+      headerName: 'Role',
       flex: 0.5,
     },
   ];
 
   return (
-    <Box m="1.5rem 2.5rem">
-      <LayoutTitle title="CUSTOMERS" subtitle="See all  customers" />
+    <Box m="1.5rem 2.5rem" height="100%">
+      <LayoutTitle title="MANAGMENT" subtitle="See full list of admins" />
 
-      <Box mt="1.5rem" height="80vh">
+      <Box m="1.5rem 2.5rem" height="80vh">
         <DataGrid
           loading={isLoading}
-          rows={data || []}
           getRowId={row => row._id}
+          rows={data || []}
           columns={columns}
         />
       </Box>
@@ -61,4 +61,4 @@ const Customers = () => {
   );
 };
 
-export default Customers;
+export default Admin;

@@ -8,22 +8,6 @@ import morgan from 'morgan';
 
 import appRouter from './routes/index.js';
 
-// // MOCK DATA
-import {
-  dataProduct,
-  dataUser,
-  dataProductStat,
-  dataTransaction,
-  dataAffiliateStat,
-  dataOverallStat,
-} from './data.js';
-// import Product from './models/ProductModel.js';
-import ProductStat from './models/ProductStatModel.js';
-// import User from './models/UserModel.js';
-// import Transaction from './models/TransactionModel.js';
-// import AffiliateStat from './models/AffiliateStatModel.js';
-import OverallStat from './models/OverAllStatModel.js';
-
 // Configurating basic middlewares
 dotenv.config();
 const app = express();
@@ -43,15 +27,8 @@ const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(process.env.MONGO_URL, {})
-  .then(() => {
+  .then(() =>
     // Serevr setup
-    app.listen(PORT, () => console.log(`listening on PORT ${PORT}...`));
-
-    // User.insertMany(dataUser);
-    // ProductStat.insertMany(dataProductStat);
-    // Product.insertMany(dataProduct);
-    // Transaction.insertMany(dataTransaction);
-    // AffiliateStat.insertMany(dataAffiliateStat);
-    // OverallStat.insertMany(dataOverallStat);
-  })
+    app.listen(PORT, () => console.log(`listening on PORT ${PORT}...`))
+  )
   .catch(e => console.log(e));

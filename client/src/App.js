@@ -13,6 +13,7 @@ import Geography from './layouts/Geography';
 import Overview from './layouts/Overview';
 import Monthly from './layouts/Monthly';
 import Breakdown from './layouts/Breakdown';
+import Admin from './layouts/Admin';
 
 function App() {
   const mode = useSelector(state => state.global.mode);
@@ -42,6 +43,7 @@ function App() {
               <Route path="/overview" element={<Overview />} replace></Route>
               <Route path="/monthly" element={<Monthly />} replace></Route>
               <Route path="/breakdown" element={<Breakdown />} replace></Route>
+              <Route path="/admin" element={<Admin />} replace></Route>
             </Route>
           </Routes>
         </ThemeProvider>

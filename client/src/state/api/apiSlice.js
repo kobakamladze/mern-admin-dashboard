@@ -26,6 +26,9 @@ export const apiSlice = createApi({
     getSales: builder.query({
       query: () => `sales/overall-stats`,
     }),
+    getAdmins: builder.query({
+      query: () => `managment/admins`,
+    }),
   }),
 });
 
@@ -36,4 +39,5 @@ export const {
   useGetTransactionsQuery,
   useGetGeographyQuery,
   useGetSalesQuery,
+  useGetAdminsQuery,
 } = apiSlice;
