@@ -40,7 +40,7 @@ const Performance = () => {
         <DataGrid
           loading={isLoading}
           getRowId={row => row._id}
-          rows={data.sales || []}
+          rows={data?.sales || []}
           columns={columns}
         />
       </Box>

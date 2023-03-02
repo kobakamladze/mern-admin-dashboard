@@ -32,6 +32,9 @@ export const apiSlice = createApi({
     getUserPerformance: builder.query({
       query: id => `managment/performance/${id}`,
     }),
+    getDashboardData: builder.query({
+      query: () => `general/dashboardData`,
+    }),
   }),
 });
 
@@ -44,4 +47,5 @@ export const {
   useGetSalesQuery,
   useGetAdminsQuery,
   useGetUserPerformanceQuery,
+  useGetDashboardDataQuery,
 } = apiSlice;
