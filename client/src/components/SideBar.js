@@ -172,8 +172,8 @@ const SideBar = ({ user, isMobile, isSidebarOpened, setIsSidebarOpened }) => {
           <Box width="100%">
             <Box m="1.rem 2rem 2rem 3rem">
               <Box textAlign="center" gap="0.5rem">
-                <Typography variant="h4" fontWeight="bold" p="1rem">
-                  TITLE-TEXT
+                <Typography variant="h4" fontWeight="bold" p="1.5rem 0 1rem 0">
+                  CHARTBOARDAPP
                 </Typography>
                 {isMobile ? (
                   <IconButton

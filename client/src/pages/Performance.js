@@ -38,7 +38,7 @@ const Performance = () => {
       subtitle="See user's performance here"
       isLoading={isLoading}
     >
-      <Box m="1.5rem 2.5rem" height="80vh">
+      <Box m="1.5rem 0" height="80vh">
         <DataGrid
           loading={isLoading}
           getRowId={row => row._id}

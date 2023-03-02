@@ -105,28 +105,26 @@ const CatalogLayout = () => {
   const isMobile = useMediaQuery('(min-width: 1000px)');
 
   return (
-    <Box m="1.5rem 2.5rem">
-      <TestLayout
-        title="PRODUCTS"
-        subtitle="See list of your products"
-        isLoading={isLoading}
+    <TestLayout
+      title="PRODUCTS"
+      subtitle="See list of your products"
+      isLoading={isLoading}
+    >
+      <Box
+        mt="20px"
+        height="100%"
+        display="grid"
+        gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+        justifyContent="space-between"
+        rowGap="20px"
+        columnGap="1.33%"
+        sx={{
+          '& > div': { gridColumn: !isMobile ? 'span 4' : undefined },
+        }}
       >
-        <Box
-          mt="20px"
-          height="100%"
-          display="grid"
-          gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-          justifyContent="space-between"
-          rowGap="20px"
-          columnGap="1.33%"
-          sx={{
-            '& > div': { gridColumn: !isMobile ? 'span 4' : undefined },
-          }}
-        >
-          <ProductsList data={data} />
-        </Box>
-      </TestLayout>
-    </Box>
+        <ProductsList data={data} />
+      </Box>
+    </TestLayout>
   );
 };
 

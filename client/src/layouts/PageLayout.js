@@ -22,7 +22,7 @@ const PageLayout = ({ title, subtitle, children, isLoading = false }) => {
     <Box m="1.5rem 2.5rem">
       <LayoutTitle title={title} subtitle={subtitle} />
 
-      <Box m="1.5rem 2.5rem" height="100%">
+      <Box m="1.5rem 0" height="100%">
         {children}
       </Box>
     </Box>
