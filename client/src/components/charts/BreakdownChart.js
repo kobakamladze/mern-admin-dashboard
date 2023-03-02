@@ -2,11 +2,12 @@ import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
 import { Box } from '@mui/material';
 import { useGetSalesQuery } from '../../state/api/apiSlice';
+import Spinner from '../Spinner';
 
 const BreakdownChart = () => {
   const { data, isLoading } = useGetSalesQuery();
 
-  if (isLoading) return <Box>Loading...</Box>;
+  if (isLoading) return <Spinner />;
 
   const formattedData = Object.entries(data.salesByCategory).map(
     ([category, sales], i) => ({

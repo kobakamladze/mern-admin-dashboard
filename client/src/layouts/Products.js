@@ -14,6 +14,7 @@ import {
 
 import LayoutTitle from '../components/LayoutTitle';
 import { useGetProductsQuery } from '../state/api/apiSlice';
+import Spinner from '../components/Spinner';
 
 const ProductCard = ({
   product: {
@@ -104,14 +105,7 @@ const CatalogLayout = () => {
   const { data, isLoading, isFetching } = useGetProductsQuery();
   const isMobile = useMediaQuery('(min-width: 1000px)');
 
-  if (isLoading || isFetching)
-    return (
-      <Box>
-        <Typography fontSize="32px" fontWeight="bold">
-          Loading...
-        </Typography>
-      </Box>
-    );
+  if (isLoading || isFetching) return <Spinner />;
 
   return (
     <Box m="1.5rem 2.5rem">

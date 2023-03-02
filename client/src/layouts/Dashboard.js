@@ -64,6 +64,8 @@ const StatBox = ({ title, value, increase, icon, description }) => {
 };
 
 const Dashboard = () => {
+  const theme = useTheme();
+
   const isNotMMediumScreen = useMediaQuery('(min-width: 1200px)');
   const { data, isLoading } = useGetDashboardDataQuery();
 
@@ -125,7 +127,7 @@ const Dashboard = () => {
           p="1rem"
           borderRadius="0.55rem"
           color="black"
-          backgroundColor="#21295c"
+          backgroundColor={theme.palette.background.alt}
         >
           <OverviewChart view="sales" isDashboard={true} />
         </Box>

@@ -4,6 +4,7 @@ import { ResponsiveLine } from '@nivo/line';
 
 import { useGetSalesQuery } from '../state/api/apiSlice';
 import LayoutTitle from '../components/LayoutTitle';
+import Spinner from '../components/Spinner';
 
 const Monthly = () => {
   const theme = useTheme();
@@ -45,7 +46,7 @@ const Monthly = () => {
     [data]
   );
 
-  if (isLoading) return <Box>Loading...</Box>;
+  if (isLoading) return <Spinner />;
 
   return (
     <Box m="1.5rem 2.5rem">

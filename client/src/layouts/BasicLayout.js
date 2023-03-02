@@ -6,6 +6,7 @@ import { Box, useMediaQuery } from '@mui/material';
 import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
 import { useGetUserQuery } from '../state/api/apiSlice';
+import Spinner from '../components/Spinner';
 
 // import NavBar from '.';
 
@@ -16,7 +17,7 @@ const Layout = () => {
   const userId = useSelector(state => state.global.userId);
   const { data, isLoading } = useGetUserQuery(userId);
 
-  if (isLoading) return <Box>Loading...</Box>;
+  if (isLoading) return <Spinner />;
 
   return (
     <Box display={isMobile ? 'block' : 'flex'} width="100%" height="100%">

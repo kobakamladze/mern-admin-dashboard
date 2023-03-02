@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import { Box, useTheme } from '@mui/material';
 import { useGetSalesQuery } from '../../state/api/apiSlice';
+import Spinner from '../Spinner';
 
 const OverviewChart = ({ view }) => {
   const theme = useTheme();
@@ -48,7 +49,7 @@ const OverviewChart = ({ view }) => {
     [data]
   );
 
-  if (!data || isLoading) return <Box>Loading...</Box>;
+  if (!data || isLoading) return <Spinner />;
 
   return (
     <ResponsiveLine

@@ -4,13 +4,14 @@ import { ResponsiveChoropleth } from '@nivo/geo';
 import { geoData } from '../state/geoData';
 import { useGetGeographyQuery } from '../state/api/apiSlice';
 import LayoutTitle from '../components/LayoutTitle';
+import Spinner from '../components/Spinner';
 
 const Geography = () => {
   const theme = useTheme();
 
   const { data, isLoading } = useGetGeographyQuery();
 
-  if (isLoading) return <Box>Loading...</Box>;
+  if (isLoading) return <Spinner />;
 
   return (
     <Box m="1.5rem 2.5rem" sx={{ color: 'black' }}>

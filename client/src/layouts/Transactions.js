@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState } from 'react';
 import LayoutTitle from '../components/LayoutTitle';
+import Spinner from '../components/Spinner';
 import { useGetTransactionsQuery } from '../state/api/apiSlice';
 
 const Transactions = () => {
@@ -9,7 +10,7 @@ const Transactions = () => {
 
   const { data, isLoading } = useGetTransactionsQuery({ page });
 
-  if (isLoading) return <Box>Loading...</Box>;
+  if (isLoading) return <Spinner />;
 
   const columns = [
     {
