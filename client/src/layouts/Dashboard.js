@@ -89,7 +89,7 @@ const Dashboard = () => {
     {
       field: 'cost',
       headerNName: 'Cost',
-      flex: 0.5,
+      flex: 1,
     },
   ];
 

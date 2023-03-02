@@ -11,7 +11,7 @@ const Admin = () => {
     {
       field: '_id',
       headerName: 'ID',
-      flex: 1,
+      flex: 0.7,
     },
     {
       field: 'name',
