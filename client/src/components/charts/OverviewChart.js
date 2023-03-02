@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { ResponsiveLine } from '@nivo/line';
-import { Box, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
 import { useGetSalesQuery } from '../../state/api/apiSlice';
 import Spinner from '../Spinner';
 

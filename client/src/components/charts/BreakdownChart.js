@@ -1,6 +1,5 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
-import { Box } from '@mui/material';
 import { useGetSalesQuery } from '../../state/api/apiSlice';
 import Spinner from '../Spinner';
 

@@ -1,4 +1,4 @@
-import { Box, useTheme } from '@mui/material';
+import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import { useGetAdminsQuery } from '../state/api/apiSlice';

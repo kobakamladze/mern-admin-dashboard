@@ -1,4 +1,4 @@
-import { Box, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
+import { Box, MenuItem, Select, FormControl } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import LayoutTitle from '../components/LayoutTitle';
 import OverviewChart from '../components/charts/OverviewChart';

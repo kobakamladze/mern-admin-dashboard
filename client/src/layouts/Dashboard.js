@@ -1,18 +1,6 @@
 import FlexBetween from '../components/FlexBetween';
-import {
-  DownloadOutlined,
-  Email,
-  PointOfSale,
-  PersonAdd,
-  Traffic,
-} from '@mui/icons-material';
-import {
-  Box,
-  Button,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import LayoutTitle from '../components/LayoutTitle';
