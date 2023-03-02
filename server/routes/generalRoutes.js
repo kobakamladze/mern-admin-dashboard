@@ -31,4 +31,11 @@ generalRoutes.get('/customers', generalController.getCustomers);
 */
 generalRoutes.get('/transactions', generalController.getTransactions);
 
+/*
+    GET general/dashboardStats
+
+    Fetches all data that has to be displayed on dashboard page
+*/
+generalRoutes.get('/dashboardData', generalController.getDashboardData);
+
 export default generalRoutes;
