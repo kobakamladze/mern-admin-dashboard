@@ -1,11 +1,16 @@
 import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import LayoutTitle from '../components/LayoutTitle';
 import { useGetUserPerformanceQuery } from '../state/api/apiSlice';
 
 const Performance = () => {
+  useEffect(() => {
+    document.title = 'Performance';
+  }, []);
+
   const userId = useSelector(state => state.global.userId);
   const { data, isLoading } = useGetUserPerformanceQuery(userId);
 

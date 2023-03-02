@@ -1,9 +1,13 @@
 import { Box, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LayoutTitle from '../components/LayoutTitle';
 import OverviewChart from '../components/charts/OverviewChart';
 
 const Overview = () => {
+  useEffect(() => {
+    document.title = 'Overview';
+  }, []);
+
   const [view, setView] = useState('units');
 
   return (

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Box, useTheme } from '@mui/material';
 import { ResponsiveLine } from '@nivo/line';
 
@@ -7,6 +7,10 @@ import LayoutTitle from '../components/LayoutTitle';
 import Spinner from '../components/Spinner';
 
 const Monthly = () => {
+  useEffect(() => {
+    document.title = 'Monthly';
+  }, []);
+
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery();
 

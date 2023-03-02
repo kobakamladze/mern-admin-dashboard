@@ -19,6 +19,7 @@ import LayoutTitle from '../components/LayoutTitle';
 import { useGetDashboardDataQuery } from '../state/api/apiSlice';
 import BreakdownChart from '../components/charts/BreakdownChart';
 import OverviewChart from '../components/charts/OverviewChart';
+import { useEffect } from 'react';
 
 const StatBox = ({ title, value, increase, icon, description }) => {
   const theme = useTheme();
@@ -65,6 +66,10 @@ const StatBox = ({ title, value, increase, icon, description }) => {
 
 const Dashboard = () => {
   const theme = useTheme();
+
+  useEffect(() => {
+    document.title = 'Dashboard';
+  }, []);
 
   const isNotMMediumScreen = useMediaQuery('(min-width: 1200px)');
   const { data, isLoading } = useGetDashboardDataQuery();

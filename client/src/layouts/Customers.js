@@ -1,10 +1,15 @@
 import { Box, useTheme } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
+import { useEffect } from 'react';
 
 import LayoutTitle from '../components/LayoutTitle';
 import { useGetCustomersQuery } from '../state/api/apiSlice';
 
 const Customers = () => {
+  useEffect(() => {
+    document.title = 'Customers';
+  }, []);
+
   const { data, isLoading } = useGetCustomersQuery();
 
   const columns = [

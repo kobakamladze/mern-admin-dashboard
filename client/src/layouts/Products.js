@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
   useMediaQuery,
@@ -102,6 +102,10 @@ const ProductsList = ({ data }) => {
 };
 
 const CatalogLayout = () => {
+  useEffect(() => {
+    document.title = 'Products';
+  }, []);
+
   const { data, isLoading, isFetching } = useGetProductsQuery();
   const isMobile = useMediaQuery('(min-width: 1000px)');
 

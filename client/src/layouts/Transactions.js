@@ -1,11 +1,15 @@
 import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LayoutTitle from '../components/LayoutTitle';
 import Spinner from '../components/Spinner';
 import { useGetTransactionsQuery } from '../state/api/apiSlice';
 
 const Transactions = () => {
+  useEffect(() => {
+    document.title = 'Transactions';
+  }, []);
+
   const [page, setPage] = useState(1);
 
   const { data, isLoading } = useGetTransactionsQuery({ page });

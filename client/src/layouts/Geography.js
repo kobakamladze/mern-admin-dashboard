@@ -5,8 +5,13 @@ import { geoData } from '../state/geoData';
 import { useGetGeographyQuery } from '../state/api/apiSlice';
 import LayoutTitle from '../components/LayoutTitle';
 import Spinner from '../components/Spinner';
+import { useEffect } from 'react';
 
 const Geography = () => {
+  useEffect(() => {
+    document.title = 'Geography';
+  }, []);
+
   const theme = useTheme();
 
   const { data, isLoading } = useGetGeographyQuery();

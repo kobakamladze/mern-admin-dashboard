@@ -3,8 +3,13 @@ import { DataGrid } from '@mui/x-data-grid';
 
 import { useGetAdminsQuery } from '../state/api/apiSlice';
 import LayoutTitle from '../components/LayoutTitle';
+import { useEffect } from 'react';
 
 const Admin = () => {
+  useEffect(() => {
+    document.title = 'Admin';
+  }, []);
+
   const { data, isLoading } = useGetAdminsQuery();
 
   const columns = [
