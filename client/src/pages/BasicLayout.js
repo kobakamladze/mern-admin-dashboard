@@ -8,8 +8,6 @@ import SideBar from '../components/SideBar';
 import { useGetUserQuery } from '../state/api/apiSlice';
 import Spinner from '../components/Spinner';
 
-// import NavBar from '.';
-
 const Layout = () => {
   const isMobile = !useMediaQuery('(min-width: 600px)');
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);

@@ -1,15 +1,10 @@
 import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { useEffect } from 'react';
 
-import LayoutTitle from '../components/LayoutTitle';
 import { useGetCustomersQuery } from '../state/api/apiSlice';
+import TestLayout from '../layouts/PageLayout';
 
 const Customers = () => {
-  useEffect(() => {
-    document.title = 'Customers';
-  }, []);
-
   const { data, isLoading } = useGetCustomersQuery();
 
   const columns = [
@@ -51,10 +46,12 @@ const Customers = () => {
   ];
 
   return (
-    <Box m="1.5rem 2.5rem">
-      <LayoutTitle title="CUSTOMERS" subtitle="See all  customers" />
-
-      <Box mt="1.5rem" height="80vh">
+    <TestLayout
+      title="CUSTOMERS"
+      subtitle="See all  customers"
+      isLoading={isLoading}
+    >
+      <Box height="80vh">
         <DataGrid
           loading={isLoading}
           rows={data || []}
@@ -62,7 +59,7 @@ const Customers = () => {
           columns={columns}
         />
       </Box>
-    </Box>
+    </TestLayout>
   );
 };
 

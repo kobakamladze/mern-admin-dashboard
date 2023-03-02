@@ -3,11 +3,10 @@ import FlexBetween from '../components/FlexBetween';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
-import LayoutTitle from '../components/LayoutTitle';
 import { useGetDashboardDataQuery } from '../state/api/apiSlice';
 import BreakdownChart from '../components/charts/BreakdownChart';
 import OverviewChart from '../components/charts/OverviewChart';
-import { useEffect } from 'react';
+import TestLayout from '../layouts/PageLayout';
 
 const StatBox = ({ title, value, increase, icon, description }) => {
   const theme = useTheme();
@@ -55,10 +54,6 @@ const StatBox = ({ title, value, increase, icon, description }) => {
 const Dashboard = () => {
   const theme = useTheme();
 
-  useEffect(() => {
-    document.title = 'Dashboard';
-  }, []);
-
   const isNotMMediumScreen = useMediaQuery('(min-width: 1200px)');
   const { data, isLoading } = useGetDashboardDataQuery();
 
@@ -87,11 +82,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <Box m="1.5rem 2.5rem">
-      <FlexBetween>
-        <LayoutTitle title="DASHBOARD" subtitle="Welcome to dashboard" />
-      </FlexBetween>
-
+    <TestLayout title="DASHBOARD" subtitle="Welcome to dashboard">
       <Box
         mt="20px"
         display="grid"
@@ -156,7 +147,7 @@ const Dashboard = () => {
           <BreakdownChart isDashboard={true} />
         </Box>
       </Box>
-    </Box>
+    </TestLayout>
   );
 };
 

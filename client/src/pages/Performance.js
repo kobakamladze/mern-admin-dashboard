@@ -1,16 +1,11 @@
 import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import LayoutTitle from '../components/LayoutTitle';
 import { useGetUserPerformanceQuery } from '../state/api/apiSlice';
+import TestLayout from '../layouts/PageLayout';
 
 const Performance = () => {
-  useEffect(() => {
-    document.title = 'Performance';
-  }, []);
-
   const userId = useSelector(state => state.global.userId);
   const { data, isLoading } = useGetUserPerformanceQuery(userId);
 
@@ -38,9 +33,11 @@ const Performance = () => {
   ];
 
   return (
-    <Box m="1.5rem 2.5rem" height="80vh">
-      <LayoutTitle title="PERFORMANCE" subtitle="See user's performance here" />
-
+    <TestLayout
+      title="PERFORMANCE"
+      subtitle="See user's performance here"
+      isLoading={isLoading}
+    >
       <Box m="1.5rem 2.5rem" height="80vh">
         <DataGrid
           loading={isLoading}
@@ -49,7 +46,7 @@ const Performance = () => {
           columns={columns}
         />
       </Box>
-    </Box>
+    </TestLayout>
   );
 };
 

@@ -4,17 +4,17 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
 import { themeSettings } from './theme';
-import BasicLayout from './layouts/BasicLayout';
-import Dashboard from './layouts/Dashboard';
-import Products from './layouts/Products';
-import Customers from './layouts/Customers';
-import Transactions from './layouts/Transactions';
-import Geography from './layouts/Geography';
-import Overview from './layouts/Overview';
-import Monthly from './layouts/Monthly';
-import Breakdown from './layouts/Breakdown';
-import Admin from './layouts/Admin';
-import Performance from './layouts/Performance';
+import BasicLayout from './pages/BasicLayout';
+import Dashboard from './pages/Dashboard';
+import Products from './pages/Products';
+import Customers from './pages/Customers';
+import Transactions from './pages/Transactions';
+import Geography from './pages/Geography';
+import Overview from './pages/Overview';
+import Monthly from './pages/Monthly';
+import Breakdown from './pages/Breakdown';
+import Admin from './pages/Admin';
+import Performance from './pages/Performance';
 
 function App() {
   const mode = useSelector(state => state.global.mode);

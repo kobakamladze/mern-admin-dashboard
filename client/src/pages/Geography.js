@@ -3,29 +3,21 @@ import { ResponsiveChoropleth } from '@nivo/geo';
 
 import { geoData } from '../state/geoData';
 import { useGetGeographyQuery } from '../state/api/apiSlice';
-import LayoutTitle from '../components/LayoutTitle';
-import Spinner from '../components/Spinner';
-import { useEffect } from 'react';
+
+import TestLayout from '../layouts/PageLayout';
 
 const Geography = () => {
-  useEffect(() => {
-    document.title = 'Geography';
-  }, []);
-
   const theme = useTheme();
 
   const { data, isLoading } = useGetGeographyQuery();
 
-  if (isLoading) return <Spinner />;
-
   return (
-    <Box m="1.5rem 2.5rem" sx={{ color: 'black' }}>
-      <LayoutTitle
-        title="GEOGRAPHY"
-        subtitle="See number of users around the world."
-      />
-
-      <Box mt="40px" height="80vh" width="100%">
+    <TestLayout
+      isLoading={isLoading}
+      title="GEOGRAPHY"
+      subtitle="See number of users around the world."
+    >
+      <Box height="80vh">
         <ResponsiveChoropleth
           data={data}
           features={geoData.features}
@@ -68,7 +60,7 @@ const Geography = () => {
           ]}
         />
       </Box>
-    </Box>
+    </TestLayout>
   );
 };
 

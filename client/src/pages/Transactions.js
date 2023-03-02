@@ -1,20 +1,14 @@
 import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { useEffect, useState } from 'react';
-import LayoutTitle from '../components/LayoutTitle';
-import Spinner from '../components/Spinner';
+import { useState } from 'react';
+
 import { useGetTransactionsQuery } from '../state/api/apiSlice';
+import TestLayout from '../layouts/PageLayout';
 
 const Transactions = () => {
-  useEffect(() => {
-    document.title = 'Transactions';
-  }, []);
-
   const [page, setPage] = useState(1);
 
   const { data, isLoading } = useGetTransactionsQuery({ page });
-
-  if (isLoading) return <Spinner />;
 
   const columns = [
     {
@@ -41,22 +35,24 @@ const Transactions = () => {
   ];
 
   return (
-    <Box m="1.5rem 2.5rem">
-      <LayoutTitle title="TRANSACTIONS" subtitle="See all transactions here" />
-
-      <Box mt="1rem" height="80vh">
+    <TestLayout
+      title="TRANSACTIONS"
+      subtitle="See all transactions here"
+      isLoading={isLoading}
+    >
+      <Box height="80vh">
         <DataGrid
-          isLoading={isLoading}
+          loading={isLoading}
           getRowId={row => row._id}
           columns={columns}
-          rows={data.products}
-          rowCount={data.count || 0}
+          rows={data?.products}
+          rowCount={data?.count || 0}
           page={page}
           paginationMode="server"
           onPageChange={newPage => setPage(newPage)}
         />
       </Box>
-    </Box>
+    </TestLayout>
   );
 };
 

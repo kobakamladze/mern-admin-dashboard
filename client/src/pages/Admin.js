@@ -2,14 +2,9 @@ import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import { useGetAdminsQuery } from '../state/api/apiSlice';
-import LayoutTitle from '../components/LayoutTitle';
-import { useEffect } from 'react';
+import TestLayout from '../layouts/PageLayout';
 
 const Admin = () => {
-  useEffect(() => {
-    document.title = 'Admin';
-  }, []);
-
   const { data, isLoading } = useGetAdminsQuery();
 
   const columns = [
@@ -51,10 +46,12 @@ const Admin = () => {
   ];
 
   return (
-    <Box m="1.5rem 2.5rem" height="100%">
-      <LayoutTitle title="MANAGMENT" subtitle="See full list of admins" />
-
-      <Box m="1.5rem 2.5rem" height="80vh">
+    <TestLayout
+      title="ADMIN"
+      subtitle="See full list of admins"
+      isLoading={isLoading}
+    >
+      <Box height="80vh">
         <DataGrid
           loading={isLoading}
           getRowId={row => row._id}
@@ -62,7 +59,7 @@ const Admin = () => {
           columns={columns}
         />
       </Box>
-    </Box>
+    </TestLayout>
   );
 };
 
