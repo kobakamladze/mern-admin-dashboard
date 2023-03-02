@@ -1,8 +1,12 @@
+import dotenv from 'dotenv';
+
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+dotenv.config();
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.BASE_URL }),
   endpoints: builder => ({
     getUser: builder.query({
       query: id => `general/user/${id}`,
