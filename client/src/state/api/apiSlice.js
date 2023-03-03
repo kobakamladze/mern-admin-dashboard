@@ -1,12 +1,14 @@
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-dotenv.config();
+// dotenv.config();
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://mern-admin-dashboard.vercel.app/api/',
+  }),
   endpoints: builder => ({
     getUser: builder.query({
       query: id => `general/user/${id}`,
