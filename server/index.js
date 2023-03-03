@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import appRouter from './routes/index.js';
+import appRouter from './src/routes/index.js';
 
 // Configurating basic middlewares
 dotenv.config();
