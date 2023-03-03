@@ -1,4 +1,4 @@
-import OverallStat from '../models/OverAllStatModel.js';
+import OverallStat from '../models/OverallStatModel.js';
 
 class SalesController {
   async getgetSales(req, res) {

@@ -1,7 +1,7 @@
 import User from '../models/UserModel.js';
-import OverallStat from '../models/OverallStatModel.js';
 import Product from '../models/ProductModel.js';
 import Transaction from '../models/TransactionModel.js';
+import OverallStat from '../models/OverallStatModel.js';
 
 class GeneralControllers {
   // User methods
