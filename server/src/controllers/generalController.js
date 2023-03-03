@@ -9,6 +9,7 @@ class GeneralControllers {
     try {
       const id = req.params.id;
       const user = await User.findById(id);
+      console.log(user);
 
       if (!user) throw new Error();
 
@@ -21,8 +22,8 @@ class GeneralControllers {
   // Product methods
   async getProducts(req, res) {
     try {
-      const products = await Product.find().populate('productStat');
-      return res.json(products);
+      const productStats = await Product.find();
+      res.status(200).json(productStats);
     } catch (e) {
       return res.json(e);
     }
