@@ -6,7 +6,7 @@ dotenv.config();
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
   endpoints: builder => ({
     getUser: builder.query({
       query: id => `general/user/${id}`,
