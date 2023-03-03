@@ -95,6 +95,13 @@ const ProductCard = ({
 };
 
 const ProductsList = ({ data }) => {
+  if (!data || data?.length < 1 || !Array.isArray(data))
+    return (
+      <Box>
+        <Typography>NO DATA</Typography>
+      </Box>
+    );
+
   return data.map(product => (
     <ProductCard key={product._id} product={product} />
   ));
@@ -103,6 +110,8 @@ const ProductsList = ({ data }) => {
 const CatalogLayout = () => {
   const { data, isLoading } = useGetProductsQuery();
   const isMobile = useMediaQuery('(min-width: 1000px)');
+
+  console.log(data);
 
   return (
     <TestLayout
@@ -122,7 +131,7 @@ const CatalogLayout = () => {
           '& > div': { gridColumn: !isMobile ? 'span 4' : undefined },
         }}
       >
-        <ProductsList data={data} />
+        <ProductsList data={data || []} />
       </Box>
     </TestLayout>
   );

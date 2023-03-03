@@ -7,7 +7,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://mern-admin-dashboard.vercel.app/api/',
+    baseUrl: 'http://localhost:5000/api/',
   }),
   endpoints: builder => ({
     getUser: builder.query({
