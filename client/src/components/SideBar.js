@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Box,
+  Button,
   Divider,
   Drawer,
   IconButton,
@@ -15,7 +16,6 @@ import {
 } from '@mui/material';
 import {
   SettingsOutlined,
-  ChevronLeft,
   ChevronRightOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
@@ -23,11 +23,11 @@ import {
   ReceiptLongOutlined,
   PublicOutlined,
   PointOfSaleOutlined,
-  TodayOutlined,
   CalendarMonthOutlined,
   AdminPanelSettingsOutlined,
   TrendingUpOutlined,
   PieChartOutlined,
+  CloseOutlined,
 } from '@mui/icons-material';
 
 import FlexBetween from './FlexBetween';
@@ -171,10 +171,26 @@ const SideBar = ({ user, isMobile, isSidebarOpened, setIsSidebarOpened }) => {
         >
           <Box width="100%">
             <Box m="1.rem 2rem 2rem 3rem">
-              <Box textAlign="center" gap="0.5rem">
-                <Typography variant="h4" fontWeight="bold" p="1.5rem 0 1rem 0">
-                  CHARTBOARDAPP
-                </Typography>
+              <Box textAlign="center" gap="0.5rem" p="0 1rem">
+                <FlexBetween>
+                  <Typography
+                    variant="h4"
+                    fontWeight="bold"
+                    p="1.5rem 0 1rem 0"
+                  >
+                    CHARTBOARDAPP
+                  </Typography>
+                  <Button onClick={() => setIsSidebarOpened(false)}>
+                    <CloseOutlined
+                      sx={{
+                        marginRight: '8px',
+                        fontSize: '24px',
+                        color: 'grey',
+                        fontWeight: 'bold',
+                      }}
+                    />
+                  </Button>
+                </FlexBetween>
                 {isMobile ? (
                   <IconButton
                     onClick={() => setIsSidebarOpened(false)}
