@@ -1,7 +1,6 @@
 import User from '../models/UserModel.js';
 import OverallStat from '../models/OverAllStatModel.js';
 import Product from '../models/ProductModel.js';
-import ProductStat from '../models/ProductStatModel.js';
 import Transaction from '../models/TransactionModel.js';
 
 class GeneralControllers {
@@ -14,7 +13,9 @@ class GeneralControllers {
       if (!user) throw new Error();
 
       res.status(200).json(user);
-    } catch (err) {}
+    } catch (e) {
+      res.json(e);
+    }
   }
 
   // Product methods
