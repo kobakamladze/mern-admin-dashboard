@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
 import {
   LightModeOutlined,
   DarkModeOutlined,
   Menu as MenuIcon,
   Search,
   SettingsOutlined,
-  ArrowDropDownOutlined,
 } from '@mui/icons-material';
 import FlexBetween from './FlexBetween';
 import { useDispatch } from 'react-redux';
@@ -13,7 +11,6 @@ import { setMode } from '../state/globalSlice';
 import {
   AppBar,
   Box,
-  Divider,
   IconButton,
   InputBase,
   Toolbar,
@@ -47,7 +44,7 @@ const UserInfoComponent = ({ user, theme }) => {
   );
 };
 
-const NavBar = ({ user, isSidebarOpened, setIsSidebarOpened }) => {
+const NavBar = ({ user, isMobile, isSidebarOpened, setIsSidebarOpened }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
@@ -65,10 +62,14 @@ const NavBar = ({ user, isSidebarOpened, setIsSidebarOpened }) => {
             gap="3rem"
             p="0.1rem 1.5rem"
           >
-            <InputBase placeholder="Type to search" />
-            <IconButton>
-              <Search />
-            </IconButton>
+            {!isMobile ? (
+              <>
+                <InputBase placeholder="Type to search" />
+                <IconButton>
+                  <Search />
+                </IconButton>
+              </>
+            ) : null}
           </FlexBetween>
         </FlexBetween>
 

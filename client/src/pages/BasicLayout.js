@@ -28,6 +28,7 @@ const Layout = () => {
       <Box flexGrow={1}>
         <NavBar
           user={data}
+          isMobile={isMobile}
           isSidebarOpened={isSidebarOpened}
           setIsSidebarOpened={setIsSidebarOpened}
         />

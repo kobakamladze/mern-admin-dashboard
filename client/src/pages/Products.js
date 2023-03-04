@@ -111,8 +111,6 @@ const CatalogLayout = () => {
   const { data, isLoading } = useGetProductsQuery();
   const isMobile = useMediaQuery('(min-width: 1000px)');
 
-  console.log(data);
-
   return (
     <PageLayout
       title="PRODUCTS"

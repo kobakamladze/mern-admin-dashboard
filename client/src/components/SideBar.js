@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Box,
-  Button,
   Divider,
   Drawer,
   IconButton,
@@ -27,7 +26,6 @@ import {
   AdminPanelSettingsOutlined,
   TrendingUpOutlined,
   PieChartOutlined,
-  CloseOutlined,
 } from '@mui/icons-material';
 
 import FlexBetween from './FlexBetween';
@@ -51,7 +49,12 @@ const navItems = [
 ];
 
 // Styled list of navigation items for side bar
-const NavigationList = ({ navItems, activeEndpoint, setActiveEndpoint }) => {
+const NavigationList = ({
+  navItems,
+  activeEndpoint,
+  setActiveEndpoint,
+  setIsSidebarOpened,
+}) => {
   const navigate = useNavigate();
   const theme = useTheme();
 
@@ -76,6 +79,7 @@ const NavigationList = ({ navItems, activeEndpoint, setActiveEndpoint }) => {
               onClick={() => {
                 navigate(`/${lowerCaseLabel}`);
                 setActiveEndpoint(lowerCaseLabel);
+                setIsSidebarOpened(false);
               }}
               sx={{
                 backgroundColor:
@@ -115,7 +119,7 @@ const NavigationList = ({ navItems, activeEndpoint, setActiveEndpoint }) => {
 // Small component to display user info in side bar
 const UserInfoComponent = ({ user, theme }) => {
   return (
-    <Box position="absolute" bottom="2rem" width="100%">
+    <Box m="2rem 0" width="100%">
       <Divider />
       <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
         <Box
@@ -154,63 +158,46 @@ const SideBar = ({ user, isMobile, isSidebarOpened, setIsSidebarOpened }) => {
   useEffect(() => setActiveEndpoint(pathname.substring(1)), [pathname]);
 
   return (
-    <Box component="nav">
-      {isSidebarOpened ? (
-        <Drawer
-          open={isSidebarOpened}
-          onClose={() => setIsSidebarOpened(false)}
-          variant="persistent"
-          anchor="left"
-          sx={{
+    <Box component="nav" overflow="hidden">
+      <Drawer
+        open={isSidebarOpened}
+        onClose={() => setIsSidebarOpened(false)}
+        variant="temporary"
+        transitionDuration={200}
+        anchor="left"
+        sx={{
+          width: '250px',
+          '& .MuiDrawer-paper': {
+            boxSizing: 'border-box',
             width: '250px',
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: '250px',
-            },
-            overflow: 'hidden',
-          }}
-        >
-          <Box width="100%">
-            <Box m="1.rem 2rem 2rem 3rem">
-              <Box textAlign="center" gap="0.5rem" p="0 1rem">
-                <FlexBetween>
-                  <Typography
-                    variant="h4"
-                    fontWeight="bold"
-                    p="1.5rem 0 1rem 0"
-                  >
-                    CHARTBOARDAPP
-                  </Typography>
-                  <Button onClick={() => setIsSidebarOpened(false)}>
-                    <CloseOutlined
-                      sx={{
-                        marginRight: '8px',
-                        fontSize: '24px',
-                        color: 'grey',
-                        fontWeight: 'bold',
-                      }}
-                    />
-                  </Button>
-                </FlexBetween>
-                {isMobile ? (
-                  <IconButton
-                    onClick={() => setIsSidebarOpened(false)}
-                  ></IconButton>
-                ) : null}
-              </Box>
+          },
+        }}
+      >
+        <Box width="100%">
+          <Box m="1.rem 2rem 2rem 3rem">
+            <Box textAlign="center" gap="0.5rem">
+              <Typography variant="h4" fontWeight="bold" p="1.5rem 0 1rem 0">
+                CHARTBOARDAPP
+              </Typography>
 
-              <NavigationList
-                theme={theme}
-                navItems={navItems}
-                activeEndpoint={activeEndpoint}
-                setActiveEndpoint={setActiveEndpoint}
-              />
+              {isMobile ? (
+                <IconButton
+                  onClick={() => setIsSidebarOpened(false)}
+                ></IconButton>
+              ) : null}
             </Box>
-          </Box>
 
+            <NavigationList
+              theme={theme}
+              navItems={navItems}
+              activeEndpoint={activeEndpoint}
+              setActiveEndpoint={setActiveEndpoint}
+              setIsSidebarOpened={setIsSidebarOpened}
+            />
+          </Box>
           <UserInfoComponent user={user} theme={theme} />
-        </Drawer>
-      ) : null}
+        </Box>
+      </Drawer>
     </Box>
   );
 };

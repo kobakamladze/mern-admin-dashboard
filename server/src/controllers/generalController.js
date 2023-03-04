@@ -9,7 +9,6 @@ class GeneralControllers {
     try {
       const id = req.params.id;
       const user = await User.findById(id);
-      console.log(user);
 
       if (!user) throw new Error();
 
