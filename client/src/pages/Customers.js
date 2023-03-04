@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import { useGetCustomersQuery } from '../state/api/apiSlice';
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const Customers = () => {
   const { data, isLoading } = useGetCustomersQuery();
@@ -46,7 +46,7 @@ const Customers = () => {
   ];
 
   return (
-    <TestLayout
+    <PageLayout
       title="CUSTOMERS"
       subtitle="See all  customers"
       isLoading={isLoading}
@@ -59,7 +59,7 @@ const Customers = () => {
           columns={columns}
         />
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 

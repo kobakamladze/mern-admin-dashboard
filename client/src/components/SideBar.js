@@ -167,6 +167,7 @@ const SideBar = ({ user, isMobile, isSidebarOpened, setIsSidebarOpened }) => {
               boxSizing: 'border-box',
               width: '250px',
             },
+            overflow: 'hidden',
           }}
         >
           <Box width="100%">

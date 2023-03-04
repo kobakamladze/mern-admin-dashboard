@@ -4,7 +4,7 @@ import { ResponsiveChoropleth } from '@nivo/geo';
 import { geoData } from '../state/geoData';
 import { useGetGeographyQuery } from '../state/api/apiSlice';
 
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const Geography = () => {
   const theme = useTheme();
@@ -12,7 +12,7 @@ const Geography = () => {
   const { data, isLoading } = useGetGeographyQuery();
 
   return (
-    <TestLayout
+    <PageLayout
       isLoading={isLoading}
       title="GEOGRAPHY"
       subtitle="See number of users around the world."
@@ -60,7 +60,7 @@ const Geography = () => {
           ]}
         />
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 

@@ -3,7 +3,7 @@ import { Box, useTheme } from '@mui/material';
 import { ResponsiveLine } from '@nivo/line';
 
 import { useGetSalesQuery } from '../state/api/apiSlice';
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const Monthly = () => {
   const theme = useTheme();
@@ -46,7 +46,7 @@ const Monthly = () => {
   );
 
   return (
-    <TestLayout
+    <PageLayout
       title="MONTHLY SALES"
       subtitle="Chart of monthly sales"
       isLoading={isLoading}
@@ -154,7 +154,7 @@ const Monthly = () => {
           ]}
         />
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 

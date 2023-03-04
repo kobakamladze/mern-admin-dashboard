@@ -6,7 +6,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useGetDashboardDataQuery } from '../state/api/apiSlice';
 import BreakdownChart from '../components/charts/BreakdownChart';
 import OverviewChart from '../components/charts/OverviewChart';
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const StatBox = ({ title, value, increase, icon, description }) => {
   const theme = useTheme();
@@ -82,7 +82,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <TestLayout title="DASHBOARD" subtitle="Welcome to dashboard">
+    <PageLayout title="DASHBOARD" subtitle="Welcome to dashboard">
       <Box
         mt="20px"
         display="grid"
@@ -113,7 +113,7 @@ const Dashboard = () => {
           color="black"
           backgroundColor={theme.palette.background.alt}
         >
-          <OverviewChart view="sales" isDashboard={true} />
+          <OverviewChart view="sales" />
         </Box>
         <StatBox
           title="Monthly Sales"
@@ -142,12 +142,15 @@ const Dashboard = () => {
           gridRow="span 3"
           p="1.5rem"
           borderRadius="0.55rem"
+          color="black"
         >
-          <Typography variant="h6">Sales By Category</Typography>
-          <BreakdownChart isDashboard={true} />
+          <Typography variant="h6" color="white">
+            Sales By Category
+          </Typography>
+          <BreakdownChart />
         </Box>
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 

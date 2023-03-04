@@ -1,15 +1,15 @@
 import { Box } from '@mui/material';
 
 import BreakdownChart from '../components/charts/BreakdownChart';
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const Breakdown = () => {
   return (
-    <TestLayout title="BREAKDOWN" subtitle="See chart of data here">
+    <PageLayout title="BREAKDOWN" subtitle="See chart of data here">
       <Box height="80vh">
         <BreakdownChart />
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 

@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
 
 import { useGetUserPerformanceQuery } from '../state/api/apiSlice';
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const Performance = () => {
   const userId = useSelector(state => state.global.userId);
@@ -33,7 +33,7 @@ const Performance = () => {
   ];
 
   return (
-    <TestLayout
+    <PageLayout
       title="PERFORMANCE"
       subtitle="See user's performance here"
       isLoading={isLoading}
@@ -46,7 +46,7 @@ const Performance = () => {
           columns={columns}
         />
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 

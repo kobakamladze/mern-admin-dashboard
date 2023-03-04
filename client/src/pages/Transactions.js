@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useState } from 'react';
 
 import { useGetTransactionsQuery } from '../state/api/apiSlice';
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const Transactions = () => {
   const [page, setPage] = useState(1);
@@ -35,7 +35,7 @@ const Transactions = () => {
   ];
 
   return (
-    <TestLayout
+    <PageLayout
       title="TRANSACTIONS"
       subtitle="See all transactions here"
       isLoading={isLoading}
@@ -52,7 +52,7 @@ const Transactions = () => {
           onPageChange={newPage => setPage(newPage)}
         />
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 

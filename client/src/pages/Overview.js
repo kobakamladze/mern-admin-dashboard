@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Box, MenuItem, Select, FormControl } from '@mui/material';
 
 import OverviewChart from '../components/charts/OverviewChart';
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const Overview = () => {
   const [view, setView] = useState('units');
 
   return (
-    <TestLayout title="OVERVIEW" subtitle="See overall stats here">
+    <PageLayout title="OVERVIEW" subtitle="See overall stats here">
       <Box height="80vh">
         <FormControl sx={{ mt: '1rem' }}>
           <Select
@@ -25,7 +25,7 @@ const Overview = () => {
           <OverviewChart view={view} setView={setView} />
         </Box>
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 

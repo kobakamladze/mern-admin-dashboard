@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import { useGetAdminsQuery } from '../state/api/apiSlice';
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const Admin = () => {
   const { data, isLoading } = useGetAdminsQuery();
@@ -46,7 +46,7 @@ const Admin = () => {
   ];
 
   return (
-    <TestLayout
+    <PageLayout
       title="ADMIN"
       subtitle="See full list of admins"
       isLoading={isLoading}
@@ -59,7 +59,7 @@ const Admin = () => {
           columns={columns}
         />
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 

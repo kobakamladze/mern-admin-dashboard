@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 import { useGetProductsQuery } from '../state/api/apiSlice';
-import TestLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/PageLayout';
 
 const ProductCard = ({
   product: {
@@ -114,7 +114,7 @@ const CatalogLayout = () => {
   console.log(data);
 
   return (
-    <TestLayout
+    <PageLayout
       title="PRODUCTS"
       subtitle="See list of your products"
       isLoading={isLoading}
@@ -133,7 +133,7 @@ const CatalogLayout = () => {
       >
         <ProductsList data={data || []} />
       </Box>
-    </TestLayout>
+    </PageLayout>
   );
 };
 
