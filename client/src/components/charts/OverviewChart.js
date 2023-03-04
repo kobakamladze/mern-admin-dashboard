@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import { useTheme } from '@mui/material';
+
 import { useGetSalesQuery } from '../../state/api/apiSlice';
 import Spinner from '../Spinner';
 
@@ -63,6 +64,7 @@ const OverviewChart = ({ view }) => {
         stacked: false,
         reverse: false,
       }}
+      enableArea={true}
       yFormat=" >-.2f"
       axisTop={null}
       axisRight={null}
